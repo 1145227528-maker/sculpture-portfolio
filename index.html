@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>嵇鸿轩 JI HONGXUAN · 陶瓷雕塑 Ceramic Sculpture</title>
+<meta name="description" content="嵇鸿轩个人艺术网站——陶瓷雕塑、陶艺器物、综合材料创作，驻留项目与展览大事记。Ji Hongxuan's portfolio: ceramic sculpture, vessels, mixed media, residencies and exhibitions.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;400;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0d0c0a;
+  --bg-2:#14120f;
+  --panel:#1a1815;
+  --line:rgba(201,169,106,.25);
+  --gold:#c9a96a;
+  --gold-bright:#e2c68f;
+  --ink:#e8e2d6;
+  --ink-dim:#9a938a;
+  --serif:'Noto Serif SC','Songti SC','SimSun',serif;
+  --latin:'Cormorant Garamond',Georgia,serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:var(--serif);font-weight:300;line-height:1.8;overflow-x:hidden}
+body.en{font-family:Georgia,'Times New Roman',serif;line-height:1.75}
+body.en [data-en]{letter-spacing:.02em}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+::selection{background:var(--gold);color:#0d0c0a}
+
+/* ---------- nav ---------- */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;
+  padding:0 5vw;height:72px;background:linear-gradient(to bottom,rgba(13,12,10,.92),rgba(13,12,10,.65) 70%,transparent);
+  backdrop-filter:blur(6px);transition:.4s}
+nav.scrolled{background:rgba(13,12,10,.95);border-bottom:1px solid var(--line)}
+.brand{font-size:20px;letter-spacing:.35em;font-weight:400;color:var(--ink)}
+.brand em{font-family:var(--latin);font-style:italic;color:var(--gold);font-size:15px;letter-spacing:.12em;margin-left:10px}
+.nav-right{display:flex;align-items:center;gap:26px}
+.nav-links{display:flex;gap:34px;font-size:14px;letter-spacing:.2em}
+body.en .nav-links{letter-spacing:.08em}
+.nav-links a{color:var(--ink-dim);transition:.3s;padding:6px 0;border-bottom:1px solid transparent}
+.nav-links a:hover,.nav-links a.active{color:var(--gold-bright);border-bottom-color:var(--gold)}
+.lang-btn{background:none;border:1px solid var(--line);color:var(--gold-bright);font-family:var(--serif);font-size:13px;
+  letter-spacing:.15em;padding:5px 14px;border-radius:100px;cursor:pointer;transition:.3s}
+.lang-btn:hover{border-color:var(--gold)}
+
+/* ---------- hero ---------- */
+.hero{position:relative;height:100vh;min-height:640px;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.hero-bg{position:absolute;inset:0;background:url('images/p01_1.jpg') center 28%/cover no-repeat;
+  filter:brightness(.34) saturate(.85);transform:scale(1.04);animation:heroIn 2.4s ease-out both}
+@keyframes heroIn{from{transform:scale(1.12);opacity:0}to{transform:scale(1.04);opacity:1}}
+.hero::after{content:'';position:absolute;inset:0;background:
+  radial-gradient(ellipse at center,transparent 0%,rgba(13,12,10,.55) 78%,rgba(13,12,10,.9) 100%)}
+.hero-inner{position:relative;z-index:2;text-align:center;animation:rise 1.6s .3s ease both}
+@keyframes rise{from{opacity:0;transform:translateY(36px)}to{opacity:1;transform:none}}
+.hero-kicker{font-family:var(--latin);font-style:italic;letter-spacing:.5em;color:var(--gold);font-size:15px;text-transform:uppercase}
+.hero h1{font-size:clamp(52px,9vw,104px);font-weight:600;letter-spacing:.28em;margin:18px 0 6px;text-indent:.28em;color:#f2ecdf}
+.hero-sub{font-family:var(--latin);letter-spacing:.65em;font-size:clamp(14px,2vw,19px);color:var(--ink-dim);text-indent:.65em}
+.hero-line{width:1px;height:64px;background:linear-gradient(to bottom,var(--gold),transparent);margin:34px auto 22px}
+.hero-poem{font-size:16px;color:var(--ink-dim);letter-spacing:.3em}
+body.en .hero-poem{letter-spacing:.12em;font-style:italic}
+.scroll-hint{position:absolute;bottom:34px;left:50%;transform:translateX(-50%);z-index:2;color:var(--gold);font-size:11px;letter-spacing:.4em;animation:float 2.6s ease-in-out infinite}
+@keyframes float{0%,100%{transform:translate(-50%,0)}50%{transform:translate(-50%,10px)}}
+
+/* ---------- shared section ---------- */
+section{padding:120px 5vw;max-width:1280px;margin:0 auto}
+.sec-tag{font-family:var(--latin);font-style:italic;color:var(--gold);letter-spacing:.35em;font-size:15px;text-transform:uppercase}
+.sec-title{font-size:clamp(30px,4vw,44px);font-weight:600;letter-spacing:.22em;margin:12px 0 8px;color:#f0e9db}
+body.en .sec-title{letter-spacing:.08em}
+.sec-rule{width:56px;height:1px;background:var(--gold);margin:26px 0 0;opacity:.7}
+.reveal{opacity:0;transform:translateY(40px);transition:opacity 1s ease,transform 1s ease}
+.reveal.in{opacity:1;transform:none}
+
+/* ---------- about ---------- */
+.about-grid{display:grid;grid-template-columns:340px 1fr;gap:70px;align-items:start;margin-top:60px}
+.portrait{position:relative}
+.portrait img{width:100%;filter:grayscale(35%) contrast(1.02);border:1px solid var(--line)}
+.portrait::before{content:'';position:absolute;inset:-16px 16px 16px -16px;border:1px solid var(--line);z-index:-1}
+.portrait figcaption{margin-top:14px;font-size:13px;color:var(--ink-dim);letter-spacing:.2em;text-align:right}
+.about-bio p{margin-bottom:20px;color:var(--ink);font-size:16px}
+.about-bio p.dim{color:var(--ink-dim);font-size:15px}
+.edu{margin-top:36px;border-top:1px solid var(--line)}
+.edu-row{display:grid;grid-template-columns:110px 1fr auto;gap:18px;padding:16px 0;border-bottom:1px solid rgba(201,169,106,.12);font-size:15px}
+.edu-row .y{color:var(--gold);font-family:var(--latin);letter-spacing:.05em}
+.edu-row .s{color:var(--ink-dim);font-size:13px;align-self:center}
+.tags{display:flex;flex-wrap:wrap;gap:10px;margin-top:34px}
+.tags span{font-size:13px;letter-spacing:.12em;color:var(--ink-dim);border:1px solid var(--line);padding:6px 16px;border-radius:100px;transition:.3s}
+.tags span:hover{color:var(--gold-bright);border-color:var(--gold)}
+
+/* ---------- works ---------- */
+.works{max-width:1400px}
+.filters{display:flex;flex-wrap:wrap;gap:12px;margin:48px 0 20px}
+.filters button{background:none;border:1px solid var(--line);color:var(--ink-dim);font-family:inherit;
+  font-size:14px;letter-spacing:.2em;padding:9px 24px;cursor:pointer;transition:.3s}
+.filters button:hover{color:var(--gold-bright)}
+.filters button.on{background:var(--gold);border-color:var(--gold);color:#0d0c0a}
+.gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;margin-top:30px;align-items:start}
+.card{position:relative;cursor:pointer;overflow:hidden;background:var(--panel);border:1px solid rgba(201,169,106,.1);
+  opacity:0;transform:translateY(30px);transition:opacity .7s ease,transform .7s ease}
+.card.in{opacity:1;transform:none}
+.card.hide{display:none}
+.card .ph{overflow:hidden;aspect-ratio:4/3.2;display:flex;align-items:center;justify-content:center;background:#0a0908;position:relative}
+.card .ph img{width:100%;height:100%;object-fit:cover;transition:transform 1.1s cubic-bezier(.16,.8,.3,1),filter .6s}
+.card:hover .ph img{transform:scale(1.06);filter:brightness(1.06)}
+.card .meta{padding:18px 20px 20px;border-top:1px solid rgba(201,169,106,.12)}
+.card .meta h3{font-size:17px;font-weight:400;letter-spacing:.14em;color:#efe8da}
+body.en .card .meta h3{letter-spacing:.04em}
+.card .meta h3 em{font-family:var(--latin);font-style:italic;color:var(--gold);font-size:13px;margin-left:8px;letter-spacing:.08em}
+.card .meta p{font-size:13px;color:var(--ink-dim);margin-top:5px;letter-spacing:.05em}
+.tall .ph{aspect-ratio:4/4.6}
+.card.wide .ph{aspect-ratio:2.48/1}
+.card .ph .extra{display:none}
+.card .badge{position:absolute;top:14px;right:14px;z-index:2;font-size:12px;letter-spacing:.15em;
+  color:var(--gold-bright);background:rgba(13,12,10,.72);border:1px solid var(--line);padding:5px 14px;border-radius:100px}
+.card.series .ph::after{content:'✦ 点击查看系列';position:absolute;left:50%;bottom:16px;transform:translate(-50%,10px);
+  font-size:13px;letter-spacing:.25em;color:var(--gold-bright);background:rgba(13,12,10,.78);border:1px solid var(--line);
+  padding:7px 20px;border-radius:100px;opacity:0;transition:.35s;white-space:nowrap;pointer-events:none}
+body.en .card.series .ph::after{content:'✦ View series'}
+.card.series:hover .ph::after{opacity:1;transform:translate(-50%,0)}
+
+/* ---------- residency ---------- */
+.res{max-width:1400px}
+.res-block{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;margin-top:80px}
+.res-block:nth-child(even) .res-pics{order:2}
+.res-pics{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.res-pics img{width:100%;aspect-ratio:4/3.4;object-fit:cover;border:1px solid rgba(201,169,106,.12);cursor:zoom-in;transition:.4s;filter:saturate(.9)}
+.res-pics img:hover{filter:brightness(1.1) saturate(1)}
+.res-pics img:first-child{grid-column:1/-1;aspect-ratio:16/8}
+.res-info .y{font-family:var(--latin);color:var(--gold);letter-spacing:.2em;font-size:15px}
+.res-info h3{font-size:26px;font-weight:600;letter-spacing:.16em;margin:10px 0 6px;color:#f0e9db}
+body.en .res-info h3{letter-spacing:.03em}
+.res-info .loc{font-size:14px;color:var(--ink-dim);letter-spacing:.15em;margin-bottom:20px}
+.res-info p{font-size:15px;color:var(--ink);margin-bottom:14px}
+.res-info p.dim{color:var(--ink-dim);font-size:14px}
+
+/* ---------- timeline ---------- */
+.tl{position:relative;margin-top:70px;padding-left:38px;max-width:860px}
+.tl::before{content:'';position:absolute;left:6px;top:6px;bottom:6px;width:1px;background:linear-gradient(to bottom,var(--gold),rgba(201,169,106,.05))}
+.tl-item{position:relative;padding:0 0 38px}
+.tl-item::before{content:'';position:absolute;left:-37px;top:10px;width:9px;height:9px;border-radius:50%;
+  background:var(--bg);border:1px solid var(--gold);transition:.3s}
+.tl-item:hover::before{background:var(--gold)}
+.tl-item .y{font-family:var(--latin);color:var(--gold);letter-spacing:.15em;font-size:16px}
+.tl-item h4{font-size:17px;font-weight:400;letter-spacing:.1em;margin:6px 0 4px;color:#eee7d9}
+body.en .tl-item h4{letter-spacing:.02em}
+.tl-item p{font-size:14px;color:var(--ink-dim)}
+
+/* cert chip */
+.cert-chip{display:inline-flex;align-items:center;margin-left:12px;vertical-align:middle;font-size:12px;
+  letter-spacing:.12em;color:var(--gold-bright);border:1px solid var(--line);border-radius:100px;
+  padding:3px 14px;cursor:zoom-in;transition:.3s;background:rgba(201,169,106,.06)}
+.cert-chip::before{content:'📜 证书'}
+body.en .cert-chip::before{content:'📜 Certificate'}
+.cert-chip:hover{border-color:var(--gold);background:rgba(201,169,106,.18)}
+#certPop{position:fixed;z-index:300;display:none;width:340px;pointer-events:none;background:#0a0908;
+  border:1px solid var(--gold);padding:8px;box-shadow:0 24px 70px rgba(0,0,0,.75)}
+#certPop img{width:100%;display:block}
+#certPop .cap{font-size:12px;color:var(--ink-dim);letter-spacing:.08em;text-align:center;padding-top:6px}
+
+.pub{margin-top:80px;border:1px solid var(--line);padding:40px 44px;background:var(--bg-2)}
+.pub h3{font-size:20px;letter-spacing:.2em;font-weight:600;color:#efe8da;margin-bottom:20px}
+.pub li{list-style:none;padding:9px 0;border-bottom:1px solid rgba(201,169,106,.1);font-size:14.5px;color:var(--ink-dim);display:flex;gap:14px}
+.pub li b{color:var(--ink);font-weight:400}
+.pub li .src{margin-left:auto;white-space:nowrap;color:var(--gold);font-size:13px;text-align:right}
+.xtra{margin-top:36px;border:1px solid var(--line);padding:34px 44px;background:var(--bg-2)}
+.xtra h3{font-size:17px;letter-spacing:.2em;font-weight:600;color:#efe8da;margin-bottom:6px}
+.xtra .note{font-size:13px;color:var(--ink-dim);letter-spacing:.05em;margin-bottom:14px}
+.xtra .grp{display:block;font-size:12px;color:var(--gold);letter-spacing:.25em;margin:18px 0 2px}
+.xtra li{list-style:none;padding:7px 0;border-bottom:1px solid rgba(201,169,106,.08);font-size:13.5px;color:var(--ink-dim);display:flex;gap:12px;align-items:baseline;flex-wrap:wrap}
+.xtra li b{color:var(--ink);font-weight:400}
+.xtra li .src{margin-left:auto;white-space:nowrap;color:var(--gold);font-size:12px;text-align:right}
+.xtra li .cert-chip{margin-left:0;font-size:11px;padding:3px 10px}
+
+/* ---------- contact ---------- */
+.contact{text-align:center;padding-bottom:140px}
+.contact .big{font-size:clamp(34px,5vw,58px);font-weight:600;letter-spacing:.2em;margin:26px 0 10px;color:#f2ecdf}
+.contact .sub{color:var(--ink-dim);letter-spacing:.25em;font-size:15px}
+.contact-cards{display:flex;flex-wrap:wrap;justify-content:center;gap:22px;margin-top:60px}
+.ccard{border:1px solid var(--line);padding:28px 40px;min-width:250px;transition:.35s;background:var(--bg-2)}
+.ccard:hover{border-color:var(--gold);transform:translateY(-4px)}
+.ccard .k{font-size:12px;letter-spacing:.35em;color:var(--gold);text-transform:uppercase;font-family:var(--latin)}
+.ccard .v{margin-top:10px;font-size:16px;letter-spacing:.06em;color:var(--ink)}
+footer{border-top:1px solid var(--line);padding:30px 5vw;text-align:center;font-size:12.5px;letter-spacing:.25em;color:var(--ink-dim)}
+footer em{font-family:var(--latin);font-style:italic;color:var(--gold)}
+
+/* ---------- lightbox ---------- */
+.lb{position:fixed;inset:0;z-index:200;background:rgba(8,7,5,.94);display:none;align-items:center;justify-content:center;flex-direction:column;padding:5vh 5vw}
+.lb.open{display:flex}
+.lb img{max-width:88vw;max-height:76vh;object-fit:contain;border:1px solid rgba(201,169,106,.25)}
+.lb-cap{margin-top:18px;color:var(--ink-dim);letter-spacing:.15em;font-size:14px;text-align:center;max-width:80vw}
+.lb-cap b{color:var(--gold-bright);font-weight:400;letter-spacing:.2em;margin-right:14px}
+.lb-x{position:absolute;top:26px;right:34px;font-size:30px;color:var(--ink-dim);cursor:pointer;transition:.3s;line-height:1}
+.lb-x:hover{color:var(--gold)}
+.lb-arrow{position:absolute;top:50%;transform:translateY(-50%);font-size:44px;color:var(--ink-dim);cursor:pointer;padding:20px;user-select:none;transition:.3s;font-family:var(--latin)}
+.lb-arrow:hover{color:var(--gold)}
+.lb-prev{left:2vw}.lb-next{right:2vw}
+
+/* ---------- responsive ---------- */
+@media (max-width:960px){
+  .nav-links{display:none}
+  .about-grid,.res-block{grid-template-columns:1fr;gap:44px}
+  .res-block:nth-child(even) .res-pics{order:0}
+  .gallery{grid-template-columns:repeat(2,1fr)}
+  section{padding:90px 6vw}
+  #certPop{display:none !important}
+}
+@media (max-width:600px){
+  .gallery{grid-template-columns:1fr}
+  .edu-row{grid-template-columns:1fr;gap:2px}
+  .pub li{flex-direction:column;gap:2px}
+  .pub li .src{margin-left:0;text-align:left}
+  .xtra{padding:26px 20px}
+  .xtra li{flex-direction:column;gap:4px}
+  .xtra li .src{margin-left:0;text-align:left}
+}
+</style>
+</head>
+<body>
+
+<nav id="nav">
+  <a class="brand" href="#top">嵇鸿轩<em>JI HONGXUAN</em></a>
+  <div class="nav-right">
+    <div class="nav-links">
+      <a href="#about" data-en="About">关于</a>
+      <a href="#works" data-en="Works">作品</a>
+      <a href="#residency" data-en="Residency">驻留</a>
+      <a href="#record" data-en="Timeline">大事记</a>
+      <a href="#contact" data-en="Contact">联系</a>
+    </div>
+    <button class="lang-btn" id="langBtn">EN</button>
+  </div>
+</nav>
+
+<!-- ============ HERO ============ -->
+<header class="hero" id="top">
+  <div class="hero-bg"></div>
+  <div class="hero-inner">
+    <div class="hero-kicker">Ceramic · Sculpture · Art History</div>
+    <h1>嵇鸿轩</h1>
+    <div class="hero-sub">JI&nbsp;HONGXUAN&nbsp;&nbsp;PORTFOLIO</div>
+    <div class="hero-line"></div>
+    <div class="hero-poem" data-en="Between clay and flame · seeking the shape of time">泥土与火焰之间 · 寻找时间的形状</div>
+  </div>
+  <div class="scroll-hint">SCROLL ↓</div>
+</header>
+
+<!-- ============ ABOUT ============ -->
+<section id="about">
+  <div class="reveal">
+    <div class="sec-tag">About the Artist</div>
+    <h2 class="sec-title" data-en="About">关于艺术家</h2>
+    <div class="sec-rule"></div>
+  </div>
+  <div class="about-grid">
+    <figure class="portrait reveal">
+      <img src="images/p02_1.jpg" alt="嵇鸿轩肖像" loading="lazy">
+      <figcaption data-en="Ji Hongxuan · at the studio">嵇鸿轩 · 摄于工作室</figcaption>
+    </figure>
+    <div class="about-bio reveal">
+      <p data-en="Ji Hongxuan holds an MFA in Art History from Macau University of Science and Technology. He is a member of the Macau Humanities and Arts Research Society and the Ceramics Branch of the Chinese Ceramic Society. His years of art-historical training — iconography and art anthropology — run through his practice: behind every work stands a body of thought polished by fieldwork and literature.">嵇鸿轩，硕士毕业于澳门科技大学美术学专业美术史方向，澳门人文艺术研究学会会员、中国硅酸盐学会陶瓷分会会员。曾长期从事美术史研究，研究方向为图像研究与艺术人类学，学术训练深刻影响着他的创作——每件作品背后，都有一段被田野与文献反复打磨的思考。</p>
+      <p data-en="He now runs his own studio in Longquan, Zhejiang, working between Longquan and Jingdezhen. From wedging, throwing and hand-building to carving and glazing, every step is done by hand. He is especially fond of slip-carving and celadon glazes — as the blade crosses the body and the glaze melts in the kiln, each opening of the kiln becomes a renewed dialogue with clay.">目前于浙江龙泉创办个人工作室，往返于龙泉与景德镇两地创作。从揉泥、拉坯、捏塑到剔刻、施釉，皆亲手完成；尤喜以化妆土剔刻与青釉成器——刀锋划过坯体的瞬间，釉色在窑火中或凝或淌，每一次开窑，都是与泥土重新对话的时刻。</p>
+      <p class="dim" data-en="Representative papers include A Study of the Iconography of Zhangtian Cake Moulds (Minyi) and Iconographic Research on Macau's Tomb Architecture. His works have been included in the CNKI-indexed Chinese Visual Arts Yearbook 2022–2023, collected by public institutions, and selected for and awarded in numerous provincial and national exhibitions.">代表论文《广东张田饼印图像学研究》（《民艺》）、《澳门墓葬建筑图像研究》。作品曾入编《中国视觉艺术年鉴 2022-2023》，并被艺术馆收藏；多次入选省级以上展览并获奖。</p>
+      <div class="edu">
+        <div class="edu-row"><span class="y" data-en="BFA">学士</span><span data-en="Jingdezhen Ceramic University · Sculpture">景德镇陶瓷大学 · 雕塑</span><span class="s" data-en="Traditional Sculpture / Figure Modeling / Ceramic Forming">传统雕塑 / 泥塑人体 / 陶瓷成型</span></div>
+        <div class="edu-row"><span class="y" data-en="MFA">硕士</span><span data-en="Macau University of Science and Technology · Fine Arts (Art History)">澳门科技大学 · 美术学（美术史研究）</span><span class="s" data-en="Iconography / Art Anthropology">图像研究 / 艺术人类学</span></div>
+      </div>
+      <div class="tags">
+        <span data-en="Ceramic Sculpture">陶瓷雕塑</span><span data-en="Kintsugi Restoration">金缮修复</span><span data-en="Celadon">青瓷</span><span data-en="Hand-building">捏塑</span><span data-en="Iconography">图像学</span><span data-en="Art Anthropology">艺术人类学</span><span data-en="Fieldwork">田野调查</span><span data-en="Heritage Digitisation">文化遗产数字化</span><span data-en="3D Modeling ZBrush/C4D">三维建模 ZBrush/C4D</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ WORKS ============ -->
+<section id="works" class="works">
+  <div class="reveal">
+    <div class="sec-tag">Selected Works</div>
+    <h2 class="sec-title" data-en="Works">作品</h2>
+    <div class="sec-rule"></div>
+  </div>
+  <div class="filters reveal">
+    <button class="on" data-f="all" data-en="All">全部</button>
+    <button data-f="sculpt" data-en="Ceramic Sculpture">陶瓷雕塑</button>
+    <button data-f="ware" data-en="Vessels">陶艺器物</button>
+    <button data-f="petal" data-en="Letters of Spring">捏塑 · 春日来信</button>
+    <button data-f="mix" data-en="Mixed Media">综合材料</button>
+  </div>
+  <div class="gallery" id="gallery">
+
+    <!-- 陶瓷雕塑 -->
+    <div class="card tall" data-cat="sculpt" data-t="骏骨凝香" data-m="瓷泥 · 手捏陶瓷雕塑" data-t-en="Majestic Steed" data-m-en="Porcelain clay · hand-built ceramic sculpture">
+      <div class="ph"><img src="images/p04_1.jpg" alt="骏骨凝香" loading="lazy"></div>
+      <div class="meta"><h3 data-en="Majestic Steed <em>2025</em>">骏骨凝香<em>2025</em></h3><p data-en="Porcelain clay · hand-built — selected for the 9th Jiangxi Zodiac Sculpture Exhibition">瓷泥 · 手捏陶瓷雕塑 —— 入选第九届江西省生肖雕塑大展</p></div>
+    </div>
+    <div class="card" data-cat="sculpt" data-t="鹿眠" data-m="陶泥 · 釉下彩 · 高温还原烧成" data-t-en="Sleeping Deer" data-m-en="Stoneware clay · underglaze · high-fired reduction">
+      <div class="ph"><img src="images/p04_2.jpg" alt="鹿眠" loading="lazy"></div>
+      <div class="meta"><h3 data-en="Sleeping Deer">鹿眠</h3><p data-en="Stoneware clay · underglaze · hand-built · high-fired reduction">陶泥 · 釉下彩 · 手捏陶瓷雕塑 · 高温还原烧成</p></div>
+    </div>
+    <div class="card tall" data-cat="sculpt" data-t="瓦猫" data-m="陶泥 · 釉下彩 · 高温还原烧成" data-t-en="Wamao (Roof Tile Cat)" data-m-en="Stoneware clay · underglaze · high-fired reduction">
+      <div class="ph"><img src="images/p04_4.jpg" alt="瓦猫" loading="lazy"></div>
+      <div class="meta"><h3 data-en="Wamao (Roof Tile Cat) <em>2024</em>">瓦猫<em>2024</em></h3><p data-en="Stoneware clay · underglaze — shortlisted for the 1st Hainan Zijin Pottery Competition; collected by the Hainan Zijin Pottery Art Museum">陶泥 · 釉下彩 —— 入围首届海南紫金陶陶艺大赛，被海南紫金陶艺术馆收藏</p></div>
+    </div>
+    <div class="card" data-cat="sculpt" data-t="蛙鸣如诗" data-m="哥窑泥 · 梅子青釉" data-t-en="Frog Song Like Poetry" data-m-en="Ge-kiln clay · plum-green glaze">
+      <div class="ph"><img src="images/p04_3.jpg" alt="蛙鸣如诗" loading="lazy"></div>
+      <div class="meta"><h3 data-en="Frog Song Like Poetry">蛙鸣如诗</h3><p data-en="Ge-kiln clay · plum-green glaze — selected for 'The Maxim of the Earth' International Environmental Art Exhibition">哥窑泥 · 梅子青釉 —— 入选"地球的箴言"国际环保艺术展</p></div>
+    </div>
+    <div class="card" data-cat="sculpt" data-t="中国舞狮图鉴" data-m="陶瓷雕塑 · 组件 35×35cm" data-t-en="Illustrated Compendium of Chinese Lion Dance" data-m-en="Ceramic sculpture installation · 35×35cm">
+      <div class="ph"><img src="images/p08_1.jpg" alt="中国舞狮图鉴" loading="lazy"></div>
+      <div class="meta"><h3 data-en="Illustrated Compendium of Chinese Lion Dance">中国舞狮图鉴</h3><p data-en="Ceramic sculpture installation · 35×35cm">陶瓷雕塑组件 · 35×35cm</p></div>
+    </div>
+    <div class="card tall" data-cat="sculpt" data-t="蓝色血液" data-m="陶泥 · 白色化妆土 · 青花釉" data-t-en="Blue Blood" data-m-en="Stoneware clay · white slip · blue-and-white glaze">
+      <div class="ph"><img src="images/p11_2.jpg" alt="蓝色血液" loading="lazy"></div>
+      <div class="meta"><h3 data-en="Blue Blood <em>2025</em>">蓝色血液<em>2025</em></h3><p data-en="Stoneware clay · white slip — created during the 'Hairuo Ocean' horseshoe-crab conservation residency">陶泥 · 白色化妆土 —— "海若海洋"中国鲎生态保护驻留创作</p></div>
+    </div>
+
+    <!-- 陶艺器物 -->
+    <div class="card" data-cat="ware" data-t="龙泉窑青釉刻划莲瓣纹杯（复刻）" data-m="朱砂泥 · 青釉 · 1260℃氧化烧成" data-t-en="Longquan Celadon Cup with Carved Lotus Petals (Replica)" data-m-en="Cinnabar clay · celadon glaze · 1260℃ oxidation">
+      <div class="ph"><img src="images/p05_1.jpg" alt="龙泉窑青釉杯" loading="lazy"></div>
+      <div class="meta"><h3 data-en="Longquan Celadon Cup with Carved Lotus Petals">龙泉窑青釉刻划莲瓣纹杯</h3><p data-en="Cinnabar clay · hand carving · 1260℃ — replica from the Longquan Celadon Corpus, 2024">朱砂泥 · 手工刻花 · 1260℃ —— 龙泉青瓷大系复刻作品</p></div>
+    </div>
+    <div class="card" data-cat="ware" data-t="龙泉窑青釉杯（复刻）" data-m="朱砂泥 · 青釉 · 1260℃氧化烧成" data-t-en="Longquan Celadon Cup (Replica)" data-m-en="Cinnabar clay · celadon glaze · 1260℃ oxidation">
+      <div class="ph"><img src="images/p05_2.jpg" alt="龙泉窑青釉杯" loading="lazy"></div>
+      <div class="meta"><h3 data-en="Longquan Celadon Cup">龙泉窑青釉杯</h3><p data-en="Cinnabar clay · hand carving · 1260℃ — replica from the Longquan Celadon Corpus, 2024">朱砂泥 · 手工刻花 · 1260℃ —— 龙泉青瓷大系复刻作品</p></div>
+    </div>
+    <div class="card" data-cat="ware" data-t="龙泉窑青釉杯 · 器型研究（复刻）" data-m="朱砂泥 · 青釉 · 1260℃氧化烧成" data-t-en="Longquan Celadon Cup · Form Study" data-m-en="Cinnabar clay · celadon glaze · 1260℃ oxidation">
+      <div class="ph"><img src="images/p05_3.jpg" alt="龙泉窑青釉杯" loading="lazy"></div>
+      <div class="meta"><h3 data-en="Longquan Celadon Cup · Form Study">龙泉窑青釉杯 · 器型研究</h3><p data-en="Cinnabar clay · hand carving · 1260℃ — replica from the Longquan Celadon Corpus, 2024">朱砂泥 · 手工刻花 · 1260℃ —— 龙泉青瓷大系复刻作品</p></div>
+    </div>
+    <div class="card tall series" data-cat="ware" data-t="化妆土剔刻系列" data-m="陶泥 · 化妆土 · 中温烧制" data-t-en="Slip-Carved Series" data-m-en="Earthenware clay · slip · mid-fire">
+      <div class="ph">
+        <img class="cover" src="images/collage_huatu.jpg" alt="化妆土剔刻系列" loading="lazy">
+        <img class="extra" src="images/p06_1.jpg" alt="" loading="lazy">
+        <img class="extra" src="images/p06_2.jpg" alt="" loading="lazy">
+        <img class="extra" src="images/p06_3.jpg" alt="" loading="lazy">
+        <img class="extra" src="images/p06_4.jpg" alt="" loading="lazy">
+        <img class="extra" src="images/p06_5.jpg" alt="" loading="lazy">
+        <img class="extra" src="images/p06_6.jpg" alt="" loading="lazy">
+      </div>
+      <span class="badge" data-en="Series · 6 pcs">系列 · 6 件</span>
+      <div class="meta"><h3 data-en="Slip-Carved Series">化妆土剔刻系列</h3><p data-en="Earthenware clay · slip · mid-fire — click to view all 6 pieces">陶泥 · 化妆土 · 中温烧制 —— 点击查看全部 6 件</p></div>
+    </div>
+
+    <!-- 春日来信 -->
+    <div class="card" data-cat="petal" data-t="春日来信 · 繁花" data-m="哥窑泥 · 弟窑泥 · 梅子青釉" data-t-en="Letters of Spring · Blossoms" data-m-en="Ge-kiln & Di-kiln clay · plum-green glaze">
+      <div class="ph"><img src="images/p07_1.jpg" alt="春日来信" loading="lazy"></div>
+      <div class="meta"><h3 data-en="Letters of Spring · Blossoms">春日来信 · 繁花</h3><p data-en="Ge-kiln & Di-kiln clay · plum-green glaze — Excellence Award, 'Painting a Green Future' (China Academy of Art)">哥窑泥 · 弟窑泥 · 梅子青釉 —— 获中国美术学院主题艺术比赛优秀奖</p></div>
+    </div>
+    <div class="card tall" data-cat="petal" data-t="春日来信 · 一枝" data-m="哥窑泥 · 弟窑泥 · 梅子青釉" data-t-en="Letters of Spring · A Single Stem" data-m-en="Ge-kiln & Di-kiln clay · plum-green glaze">
+      <div class="ph"><img src="images/p07_2.jpg" alt="春日来信" loading="lazy"></div>
+      <div class="meta"><h3 data-en="Letters of Spring · A Single Stem">春日来信 · 一枝</h3><p data-en="Ge-kiln & Di-kiln clay · plum-green glaze · hand-built ceramic sculpture">哥窑泥 · 弟窑泥 · 梅子青釉 · 手捏陶瓷雕塑</p></div>
+    </div>
+    <div class="card" data-cat="petal" data-t="春日来信 · 盘" data-m="哥窑泥 · 弟窑泥 · 梅子青釉" data-t-en="Letters of Spring · Plate" data-m-en="Ge-kiln & Di-kiln clay · plum-green glaze">
+      <div class="ph"><img src="images/p07_3.jpg" alt="春日来信" loading="lazy"></div>
+      <div class="meta"><h3 data-en="Letters of Spring · Plate">春日来信 · 盘</h3><p data-en="Ge-kiln & Di-kiln clay · plum-green glaze — shown in 'Season of Blossoms', pinching workshop exhibition">哥窑泥 · 弟窑泥 · 梅子青釉 —— 入展捏塑工作营成果展《花开时节》</p></div>
+    </div>
+
+    <!-- 综合材料 -->
+    <div class="card wide series" data-cat="mix" data-t="秘色" data-m="玻璃 × 青瓷 · 冷铸成型" data-t-en="Mise (Secret Colour)" data-m-en="Glass × celadon · cold casting">
+      <div class="ph">
+        <img class="cover" src="images/collage_mise.jpg" alt="秘色" loading="lazy">
+        <img class="extra" src="images/p09_2.jpg" alt="" loading="lazy">
+        <img class="extra" src="images/p09_3.jpg" alt="" loading="lazy">
+      </div>
+      <span class="badge" data-en="Series · 2 pcs">系列 · 2 件</span>
+      <div class="meta"><h3 data-en="Mise (Secret Colour) <em>2024</em>">秘色<em>2024</em></h3><p data-en="Glass × celadon · cold casting — shown in 'Constructing Transparency', glass workshop exhibition">玻璃 × 陶瓷（青瓷）· 冷铸成型 —— 入展《构建透明》玻璃工作营成果展</p></div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============ RESIDENCY ============ -->
+<section id="residency" class="res">
+  <div class="reveal">
+    <div class="sec-tag">Residencies & Fieldwork</div>
+    <h2 class="sec-title" data-en="Residencies">驻留项目</h2>
+    <div class="sec-rule"></div>
+  </div>
+
+  <div class="res-block reveal">
+    <div class="res-pics">
+      <img src="images/p10_1.jpg" alt="昌马石窟驻留" loading="lazy" data-lb data-t="昌马石窟 · 驻留现场" data-m="甘肃玉门 · 2024" data-t-en="Changma Grottoes · residency" data-m-en="Yumen, Gansu · 2024">
+      <img src="images/p10_2.jpg" alt="石窟狮子壁画立体化泥塑创作" loading="lazy" data-lb data-t="石窟狮子壁画立体化泥塑创作" data-m="甘肃玉门 · 2024" data-t-en="Lion mural as clay sculpture" data-m-en="Yumen, Gansu · 2024">
+      <img src="images/p10_4.jpg" alt="石窟复原性临摹" loading="lazy" data-lb data-t="石窟复原性临摹 · 狮子壁画" data-m="甘肃玉门 · 2024" data-t-en="Restorative copying of the lion mural" data-m-en="Yumen, Gansu · 2024">
+      <img src="images/p10_3.jpg" alt="石窟纹样坑烧陶瓷创作" loading="lazy" data-lb data-t="石窟纹样坑烧陶瓷创作" data-m="甘肃玉门 · 2024" data-t-en="Pit-fired ceramics with grotto motifs" data-m-en="Yumen, Gansu · 2024">
+    </div>
+    <div class="res-info">
+      <span class="y">2024.08 — 2024.10</span>
+      <h3 data-en="'Changma Shirui' Grottoes Art Residency">"昌马世瑞" 昌马石窟艺术驻留</h3>
+      <div class="loc" data-en="Yumen City Museum, Gansu Province">甘肃省玉门市博物馆</div>
+      <p data-en="He took part in the restorative and documentary copying of murals in Caves 2 and 4 of the Changma Grottoes, and assisted the museum in systematically documenting some 140 m² of murals — academic support for later research and restoration, and a step toward bringing the grotto murals back to life.">参与昌马石窟第 2 窟、第 4 窟壁画的复原性与现状性临摹，协助博物馆对石窟内约 140 平方米壁画进行系统性整理，为后续研究与修复提供学术支撑，推动石窟壁画的活化利用。</p>
+      <p class="dim" data-en="During the residency he completed site-specific works: three-dimensional clay lions modelled on the grotto murals, and hand-pinched cups pit-fired with local clay and grotto motifs — returning the brushwork of painters a millennium ago to the earth.">驻留期间完成在地创作：以石窟壁画形象为原型的立体化泥塑狮子、取当地泥巴坑烧制壁画纹样的手捏杯等——让千年前画工的笔意，重新回到泥土之中。</p>
+    </div>
+  </div>
+
+  <div class="res-block reveal">
+    <div class="res-pics">
+      <img src="images/p11_1.jpg" alt="蓝色血液" loading="lazy" data-lb data-t="《蓝色血液》" data-m="陶泥 · 白色化妆土 · 青花釉" data-t-en="Blue Blood" data-m-en="Stoneware clay · white slip · blue-and-white glaze">
+      <img src="images/p11_2.jpg" alt="蓝色血液 · 细节" loading="lazy" data-lb data-t="《蓝色血液》· 细节" data-m="鲎形化石纹理陶盘与鲎雕塑" data-t-en="Blue Blood · detail" data-m-en="Clay plate with fossil patterns and the crab sculpture">
+      <img src="images/p11_3.jpg" alt="海若海洋驻留" loading="lazy" data-lb data-t="海若海洋 · 驻留现场" data-m="福建福清 · 2025" data-t-en="Hairuo Ocean · residency" data-m-en="Fuqing, Fujian · 2025">
+    </div>
+    <div class="res-info">
+      <span class="y">2025.07 — 2025.08</span>
+      <h3 data-en="'Hairuo Ocean' Horseshoe-Crab Conservation Residency">"海若海洋" 中国鲎生态保护驻留</h3>
+      <div class="loc" data-en="Qingyu Village, Shapu Town, Fuqing, Fujian">福建省福清市沙埔镇青屿村</div>
+      <p data-en="Through daily exchange, participant observation and recorded interviews in the fishing village, he gathered information on horseshoe-crab hotspots and fishery distribution to inform the establishment of protected areas, while creating works from local marine life and tradition.">以田野调查方法深入渔村：日常交流、参与观察、访谈记录，获取鲎热点区域与渔业分布信息，为自然保护地建设提供认知基础；同时以当地海洋生物与传统元素为题材进行艺术创作。</p>
+      <p class="dim" data-en="The installation Blue Blood pairs a clay plate engraved with horseshoe-crab fossil patterns and a sculpture glazed in blue-and-white — a metaphor for lives drained by blood harvesting and fishing. Through the permanence and fragility of ceramics, it warns of the survival crisis of this 400-million-year-old 'living fossil'.">装置《蓝色血液》由刻有鲎形化石纹理的陶盘与鲎雕塑构成，身体施以青花釉，隐喻因抽取血液与捕捞而流逝的生命——以陶瓷的永恒与脆弱，警示这一"四亿年活化石"的生存危机。</p>
+    </div>
+  </div>
+
+  <div class="res-block reveal">
+    <div class="res-pics">
+      <img src="images/p12_3.jpg" alt="四季美术馆驻留" loading="lazy" data-lb data-t="四季美术馆 · 驻留现场" data-m="广东佛山 · 2025" data-t-en="Four Seasons Art Museum · residency" data-m-en="Foshan, Guangdong · 2025">
+      <img src="images/p12_1.jpg" alt="醒狮陶瓷创作" loading="lazy" data-lb data-t="醒狮元素陶瓷创作" data-m="广东佛山 · 2025" data-t-en="Lion-dance ceramics" data-m-en="Foshan, Guangdong · 2025">
+      <img src="images/p12_2.jpg" alt="醒狮陶瓷创作" loading="lazy" data-lb data-t="醒狮元素陶瓷创作" data-m="广东佛山 · 2025" data-t-en="Lion-dance ceramics" data-m-en="Foshan, Guangdong · 2025">
+      <img src="images/p12_5.jpg" alt="醒狮陶瓷创作" loading="lazy" data-lb data-t="醒狮元素陶瓷创作" data-m="广东佛山 · 2025" data-t-en="Lion-dance ceramics" data-m-en="Foshan, Guangdong · 2025">
+      <img src="images/p12_6.jpg" alt="醒狮陶瓷创作" loading="lazy" data-lb data-t="醒狮元素陶瓷创作" data-m="广东佛山 · 2025" data-t-en="Lion-dance ceramics" data-m-en="Foshan, Guangdong · 2025">
+    </div>
+    <div class="res-info">
+      <span class="y">2025.12.04 — 2025.12.31</span>
+      <h3 data-en="Four Seasons Art Museum Residency">四季美术馆驻留项目</h3>
+      <div class="loc" data-en="Foshan, Guangdong">广东省佛山市</div>
+      <p data-en="Lion dance was born in Foshan. During a month-long residency in the city of drums, he created a series of ceramic works around the lion-dance motif — among them Lion Dance Headdress and the Zodiac Horse Series, both now collected by S&J Four Seasons Gallery — extending the iconographic lineage of the Illustrated Compendium of Chinese Lion Dance.">醒狮发源于佛山。在狮鼓声声的城市里驻留一个月，以醒狮这一极具在地性的符号为母题，创作了一系列舞狮元素的陶瓷作品，其中《醒狮头套》《生肖马系列》已被 S&J 四季画廊收藏——延续《中国舞狮图鉴》的图像谱系。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TIMELINE ============ -->
+<section id="record">
+  <div class="reveal">
+    <div class="sec-tag">Exhibitions & Awards</div>
+    <h2 class="sec-title" data-en="Timeline">大事记</h2>
+    <div class="sec-rule"></div>
+  </div>
+  <div class="tl reveal">
+    <div class="tl-item"><span class="y">2023.10</span><h4 data-en="Evolution included in the Chinese Visual Arts Yearbook 2022–2023 · Silver Award of the Yearbook <span class='cert-chip' data-cert='certs/nianjian.jpg' data-t='《进化论》获奖入编证书' data-t-en='Certificate — Award and Compilation, Chinese Visual Arts Yearbook'></span>">作品《进化论》入编《中国视觉艺术年鉴 2022-2023》· 获年鉴银奖<span class="cert-chip" data-cert="certs/nianjian.jpg" data-t="《进化论》获奖入编证书" data-t-en="Certificate — Award and Compilation, Chinese Visual Arts Yearbook"></span></h4><p data-en="Beijing Chinese and Foreign Visual Arts Institute · indexed by CNKI · 2023.10.20">北京中外视觉艺术院 · 知网收录 · 2023.10.20</p></div>
+    <div class="tl-item"><span class="y">2023.05</span><h4 data-en="Vicissitudes · Excellence Award, 'Maomao's Guimao' First Art Research Exhibition <span class='cert-chip' data-cert='certs/maomao.jpg' data-t='《沧海桑田》获奖证书' data-t-en='Certificate — Maomao&#39;s Guimao, Excellence Award'></span>">《沧海桑田》获2023"卯卯的癸卯"首届艺术研究展 · 优秀奖<span class="cert-chip" data-cert="certs/maomao.jpg" data-t="《沧海桑田》获奖证书" data-t-en="Certificate — Maomao's Guimao, Excellence Award"></span></h4><p data-en="Hundun Art Museum · 2023.05">混沌美术馆 · 2023.05</p></div>
+    <div class="tl-item"><span class="y">2023</span><h4 data-en="Luodian — Azure Dragon of the Four Symbols · Excellence Award, 2nd Huaxia Award Cross-Strait ICH Cultural-Creative Design Competition (team work) <span class='cert-chip' data-cert='certs/huaxia.jpg' data-t='《螺钼——四象图之青龙》获奖证书' data-t-en='Certificate — Huaxia Award, Excellence Award'></span>">《螺钼——四象图之青龙》获第二届"华夏奖"海峡两岸非遗文创设计大赛 · 优秀奖（合作）<span class="cert-chip" data-cert="certs/huaxia.jpg" data-t="《螺钼——四象图之青龙》获奖证书" data-t-en="Certificate — Huaxia Award, Excellence Award"></span></h4><p data-en="Macau University of Science and Technology · team work with Ye Feiyang, Huang Weiwei, Li Songzhi">澳门科技大学 · 与叶飞扬、黄魏薇、李松芷合作</p></div>
+    <div class="tl-item"><span class="y">2023</span><h4 data-en="Untitled selected for 'Distant Silk Road' — Faculty & Students Exhibition of Xi'an Academy of Fine Arts and MUST">《无题》入选《丝路绰远——西安美术学院与澳门科技大学师生作品展》</h4><p data-en="Also shown in 'Guimao 2023 — Contemporary Painting Research Exhibition' at Hundun Art Museum and Meisong Gallery, Beijing 798">另入选混沌美术馆、北京 798 美颂画廊《2023 年卯卯的癸卯——当代绘画艺术研究展》</p></div>
+    <div class="tl-item"><span class="y">2023.12</span><h4 data-en="Interaction of History selected for 'Contemporary Visions' — Macau College Students Contemporary Art Exhibition <span class='cert-chip' data-cert='certs/dangdai_shiye.jpg' data-t='《历史的交互》入选证书' data-t-en='Certificate — Contemporary Vision'></span>">《历史的交互》入选"当代视野——澳门大专生当代艺术展"<span class="cert-chip" data-cert="certs/dangdai_shiye.jpg" data-t="《历史的交互》入选证书" data-t-en="Certificate — Contemporary Vision"></span></h4><p data-en="Macau Visual Arts Teacher's Association · 2023.12.10">澳门视觉艺术教师协会 · 2023.12.10</p></div>
+    <div class="tl-item"><span class="y">2024.01</span><h4 data-en="Wenmai (Cultural Lineage) · Bronze Award, Cross-Strait Digital Art and Design Annual Awards (postgraduate group, 'Heir of the Dragon') <span class='cert-chip' data-cert='certs/wenmai_bronze.jpg' data-t='《文脉》获奖证书' data-t-en='Certificate — Cross-Strait Digital Art and Design Annual Awards, Bronze'></span>">《文脉》获2023首届两岸数字艺术设计年度奖 · 铜奖<span class="cert-chip" data-cert="certs/wenmai_bronze.jpg" data-t="《文脉》获奖证书" data-t-en="Certificate — Cross-Strait Digital Art and Design Annual Awards, Bronze"></span></h4><p data-en="Postgraduate group 'Heir of the Dragon' · Macau University of Science and Technology · 2024.01">研究生院校组·龙的传人 · 澳门科技大学 · 2024.01</p></div>
+    <div class="tl-item"><span class="y">2023.10</span><h4 data-en="Vicissitudes and Dunhuang Diary · Rising Star Award, Jingdezhen 'Taobocheng Cup' University Ceramic Works Joint Exhibition <span class='cert-chip' data-cert='certs/tabocheng.jpg' data-t='《沧海桑田》《敦煌日记》荣誉证书' data-t-en='Certificate — Taobocheng Cup, Rising Star Award'></span><span class='cert-chip' data-cert='certs/canghai_tag.jpg' data-t='《沧海桑田》展签' data-t-en='Exhibition label — Vicissitudes'></span>">《沧海桑田》《敦煌日记》获景德镇"陶博城杯"院校优秀陶瓷作品联展 · 新锐奖<span class="cert-chip" data-cert="certs/tabocheng.jpg" data-t="《沧海桑田》《敦煌日记》荣誉证书" data-t-en="Certificate — Taobocheng Cup, Rising Star Award"></span><span class="cert-chip" data-cert="certs/canghai_tag.jpg" data-t="《沧海桑田》展签" data-t-en="Exhibition label — Vicissitudes"></span></h4><p data-en="Jingdezhen International Ceramic Fair Organizing Committee · 2023.10.31">景德镇国际陶瓷博览会执委会办公室 · 2023.10.31</p></div>
+    <div class="tl-item"><span class="y">2023.11</span><h4 data-en="Emerald Stars · Finalist, 5th China Animal Specimen Competition (invertebrate specimen group) <span class='cert-chip' data-cert='certs/biaoben.jpg' data-t='《翡翠星辰》获奖证书' data-t-en='Certificate — 5th China Animal Specimen Competition'></span>">《翡翠星辰》获第五届中国动物标本大赛 · 入围奖<span class="cert-chip" data-cert="certs/biaoben.jpg" data-t="《翡翠星辰》获奖证书" data-t-en="Certificate — 5th China Animal Specimen Competition"></span></h4><p data-en="Invertebrate specimen group · Institute of Zoology, CAS · China Zoological Society et al. · 2023.11.14">昆虫及其他无脊椎动物标本组 · 中国科学院动物研究所 · 中国动物学会等 · 2023.11.14</p></div>
+    <div class="tl-item"><span class="y">2024</span><h4 data-en="Wamao of Clay shortlisted for the First Hainan Zijin Pottery Competition <span class='cert-chip' data-cert='certs/wamao_enter.jpg' data-t='《海韵黎纹紫金陶瓦猫》入围证书' data-t-en='Certificate — 1st Hainan Zijin Pottery Competition'></span>">《泥韵瓦猫》入围首届海南紫金陶陶艺大赛<span class="cert-chip" data-cert="certs/wamao_enter.jpg" data-t="《海韵黎纹紫金陶瓦猫》入围证书" data-t-en="Certificate — 1st Hainan Zijin Pottery Competition"></span></h4><p data-en="Issued by the Hainan Arts & Crafts Association, 2025.03">海南省工艺美术协会 · 2025.03</p></div>
+    <div class="tl-item"><span class="y">2024</span><h4 data-en="Mise shown in 'Constructing Transparency' — Glass Workshop Exhibition, Longquan Research Institute of Jingdezhen Ceramic University">《秘色》入展《构建透明》——景德镇陶瓷大学龙泉研究院玻璃工作营成果展</h4></div>
+    <div class="tl-item"><span class="y">2024.08</span><h4 data-en="Occupational Skill Level Certificate — Ceramic Crafts Maker (Ceramic Forming, Level 5) <span class='cert-chip' data-cert='certs/taoci_license.jpg' data-t='职业技能等级证书' data-t-en='Certificate of Occupational Skill Level'></span>">获陶瓷工艺品制作师职业技能等级证书（陶瓷工艺品成型师 · 初级/五级）<span class="cert-chip" data-cert="certs/taoci_license.jpg" data-t="职业技能等级证书" data-t-en="Certificate of Occupational Skill Level"></span></h4><p data-en="Longquan Celadon and Sword Technical College · 2024.08.29">龙泉青瓷宝剑技师学院 · 2024.08.29</p></div>
+    <div class="tl-item"><span class="y">2025.02</span><h4 data-en="Oil paintings Chang'an Street &amp; A Glimpse of Chang'an selected for the 'Westward to Chang'an' National Art Exhibition · Outstanding Work Award <span class='cert-chip' data-cert='certs/xiwangan.jpg' data-t='《长安街》《长安一隅》参展荣誉证书' data-t-en='Certificate — Westward to Chang&amp;apos;an National Art Exhibition'></span>">油画《长安街》《长安一隅》入选"西望长安"全国美术作品展 · 获优秀作品奖<span class="cert-chip" data-cert="certs/xiwangan.jpg" data-t="《长安街》《长安一隅》参展荣誉证书" data-t-en="Certificate — Westward to Chang'an National Art Exhibition"></span></h4><p data-en="Xi'an Artists Association · 29th session, 2025.02.17">西安市美术家协会 · 第二十九期展出 · 2025.02.17</p></div>
+    <div class="tl-item"><span class="y">2025</span><h4 data-en="Multiple works shown in 'Season of Blossoms' — Pinching Workshop Exhibition">多件作品入展《花开时节》——捏塑工作营成果展</h4><p data-en="Longquan Research Institute of Jingdezhen Ceramic University">景德镇陶瓷大学龙泉研究院</p></div>
+    <div class="tl-item"><span class="y">2025</span><h4 data-en="Letters of Spring · Excellence Award, 'Painting a Green Future' competition, China Academy of Art <span class='cert-chip' data-cert='certs/chunri.jpg' data-t='《春日来信》获奖证书' data-t-en='Certificate — Letters of Spring, Excellence Award'></span>">《春日来信》获中国美术学院"绘就绿色未来"主题艺术比赛 · 优秀奖<span class="cert-chip" data-cert="certs/chunri.jpg" data-t="《春日来信》获奖证书" data-t-en="Certificate — Letters of Spring, Excellence Award"></span></h4><p data-en="Nature Companion Programme & Youth League Committee of CAA · 2025.09.28">自然伙伴计划 · 中国美术学院团委 · 2025.09.28</p></div>
+    <div class="tl-item"><span class="y">2025</span><h4 data-en="Perching shortlisted for the 2nd Poyang Lake Nanji Wetland Eco-Art Competition">《栖息》入围第二届鄱阳湖南矶湿地生态艺术大赛</h4><p data-en="Organized by the Jiangxi Artists Association">江西省美术家协会主办</p></div>
+    <div class="tl-item"><span class="y">2025.06</span><h4 data-en="Chronicles of Fertile Soil shown in 'Our Expression' — Li Plant-Dye & Rattan Weaving Art Exhibition, Maodao, Wuzhishan <span class='cert-chip' data-cert='certs/wotu.jpg' data-t='《沃土纪事》参展证书' data-t-en='Certificate — Our Expression, Wuzhishan'></span>">《沃土纪事》入展"我们的表达——五指山毛道乡黎族植物染 & 藤编艺术展"<span class="cert-chip" data-cert="certs/wotu.jpg" data-t="《沃土纪事》参展证书" data-t-en="Certificate — Our Expression, Wuzhishan"></span></h4><p data-en="Hainan Provincial Cultural Center (Hainan ICH Protection Center) · Maodao Township Government · 2025.06">海南省文化馆（海南省非物质文化遗产保护中心）· 五指山市毛道乡人民政府 · 2025.06</p></div>
+    <div class="tl-item"><span class="y">2025.07</span><h4 data-en="Wamao of Clay collected by the Hainan Zijin Pottery Art Museum <span class='cert-chip' data-cert='certs/wamao_collect.jpg' data-t='《海韵黎纹紫金陶瓦猫》收藏证书' data-t-en='Certificate — Collection by Hainan Zijin Pottery Art Museum'></span>">《海韵黎纹紫金陶瓦猫》被海南紫金陶艺术馆收藏<span class="cert-chip" data-cert="certs/wamao_collect.jpg" data-t="《海韵黎纹紫金陶瓦猫》收藏证书" data-t-en="Certificate — Collection by Hainan Zijin Pottery Art Museum"></span></h4><p data-en="Collection certificate · 2025.07.01">收藏證書 · 2025.07.01</p></div>
+    <div class="tl-item"><span class="y">2025.09</span><h4 data-en="Poem of Seeds shown in 'Poetry of the Earth' — Seed-Themed Art Exhibition, China Agricultural Museum <span class='cert-chip' data-cert='certs/zhongzi.jpg' data-t='《种子诗》参展证书' data-t-en='Certificate — Poetry of the Earth, China Agricultural Museum'></span>">《种子诗》入展中国农业博物馆《大地上的诗篇》种子主题科普艺术展<span class="cert-chip" data-cert="certs/zhongzi.jpg" data-t="《种子诗》参展证书" data-t-en="Certificate — Poetry of the Earth, China Agricultural Museum"></span></h4><p data-en="China Agricultural Museum · 2025.09">中国农业博物馆 · 2025.09</p></div>
+    <div class="tl-item"><span class="y">2025.12</span><h4 data-en="Majestic Steed selected for the 'Heroic Steeds' 9th Jiangxi Zodiac Sculpture Exhibition & Jingdezhen Zodiac Sculpture Festival <span class='cert-chip' data-cert='certs/jungu.jpg' data-t='《骏骨凝香》获奖证书' data-t-en='Certificate — Majestic Steed, Jiangxi Zodiac Sculpture Exhibition'></span>">《骏骨凝香》入选"骏马呈祥"第九届江西省生肖雕塑大展暨景德镇雕塑生肖节<span class="cert-chip" data-cert="certs/jungu.jpg" data-t="《骏骨凝香》获奖证书" data-t-en="Certificate — Majestic Steed, Jiangxi Zodiac Sculpture Exhibition"></span></h4><p data-en="Jiangxi Arts & Crafts Society · 2026.02">江西省工艺美术学会 · 2026.02</p></div>
+    <div class="tl-item"><span class="y">2025.12</span><h4 data-en="Residency works Lion Dance Headdress and Zodiac Horse Series collected by S&J Four Seasons Gallery <span class='cert-chip' data-cert='certs/lion_sj.jpg' data-t='《醒狮头套》驻留及收藏证明' data-t-en='Certificate — Lion Dance Headdress, S&J Four Seasons Gallery'></span><span class='cert-chip' data-cert='certs/horse_sj.jpg' data-t='《生肖马系列》驻留及收藏证明' data-t-en='Certificate — Zodiac Horse Series, S&J Four Seasons Gallery'></span>">佛山四季美术馆驻留作品《醒狮头套》《生肖马系列》由 S&J 四季画廊收藏<span class="cert-chip" data-cert="certs/lion_sj.jpg" data-t="《醒狮头套》驻留及收藏证明" data-t-en="Certificate — Lion Dance Headdress, S&J Four Seasons Gallery"></span><span class="cert-chip" data-cert="certs/horse_sj.jpg" data-t="《生肖马系列》驻留及收藏证明" data-t-en="Certificate — Zodiac Horse Series, S&J Four Seasons Gallery"></span></h4><p data-en="Guangdong Four Seasons Art Collection Co., Ltd. · 2025.12.31">广东四季艺术收藏有限公司 · 2025.12.31</p></div>
+    <div class="tl-item"><span class="y">2026.03</span><h4 data-en="Frog Song Like Poetry selected for 'The Maxim of the Earth' — International Environmental Art Exhibition <span class='cert-chip' data-cert='certs/waming.jpg' data-t='《蛙鸣如诗》参展证书' data-t-en='Certificate — The Maxim of the Earth'></span>">《蛙鸣如诗》入选"地球的箴言——国际环保艺术展"<span class="cert-chip" data-cert="certs/waming.jpg" data-t="《蛙鸣如诗》参展证书" data-t-en="Certificate — The Maxim of the Earth"></span></h4><p data-en="China Art Daily · CPC Nantong University Committee · Nantong University et al. · 2026.03.28">《中国美术报》社 · 中共南通大学委宣传部 · 南通大学等 · 2026.03.28</p></div>
+    <div class="tl-item"><span class="y">2026.09</span><h4 data-en="Chaoyan · Kiln Colour · Third Prize, 1st 'Jun Yun Cup' Jun Ware Form Design Competition <span class='cert-chip' data-cert='certs/junyun.jpg' data-t='《朝颜·窑色》荣誉证书' data-t-en='Certificate — Jun Yun Cup, Third Prize'></span>">《朝颜·窑色》荣获首届"钧韵杯"钧瓷器型设计大赛 · 三等奖<span class="cert-chip" data-cert="certs/junyun.jpg" data-t="《朝颜·窑色》荣誉证书" data-t-en="Certificate — Jun Yun Cup, Third Prize"></span></h4><p data-en="Zhengzhou University of Light Industry · Henan Qingda Jun Ceramics Industry Technology Research Institute · 2026.09.17">郑州轻工业大学教务处 · 河南省轻大钧陶瓷产业技术研究院 · 2026.09.17</p></div>
+  </div>
+
+  <div class="pub reveal">
+    <h3 data-en="Publications">学术发表</h3>
+    <ul>
+      <li><b data-en="Recording the Revolutionary Sites of Maoming">《茂名市革命遗址"寻访"记》</b><span class="src" data-en="Yanhuang Geography, No.6 2021 · Sole author">《炎黄地理》2021 年第 6 期 · 独立作者</span></li>
+      <li><b data-en="Fieldwork on Zhangtian Cake Moulds in Guangdong — an Iconographic & Folkloric Reading">《广东张田饼印田野调查——兼论张田饼印图像民俗学解读》</b><span class="src" data-en="Minyi, No.1 2024 · Sole author">《民艺》2024 年第 1 期 · 独立作者</span></li>
+      <li><b data-en="MA Thesis: Iconographic Research on Macau's Tomb Architecture">硕士毕业论文《澳门墓葬建筑图像研究》</b><span class="src" data-en="MUST · A-">澳门科技大学 · A-</span></li>
+      <li><b data-en="Symbiotic Order and Identity Negotiation in Ritual Practice">《仪式实践中的共生秩序与认同调适》</b><span class="src" data-en="ICH & Rural Sustainability Symposium · Oral, 2025">民族民间文化遗产研讨会 · 口头报告 2025</span></li>
+      <li><b>Space and Culture: Cemeteries and Tombstone Architecture in Modern Macao</b><span class="src" data-en="Lingnan University (Hong Kong, China) Graduate Conference · 2026">香港岭南大学研究生学术会议 · 2026</span></li>
+      <li><b>Research on Cross-cultural Emotional Identity from Macao Cemetery Architectural Heritage Perspective</b><span class="src" data-en="University of Edinburgh conference · forthcoming in Sine">爱丁堡大学国际会议 · 收录待发于《sine》</span><span class="cert-chip" data-cert="certs/edinburgh_congress.jpg" data-t="爱丁堡学生大会参会证明（2026.05）" data-t-en="Certificate — Edinburgh Student Congress 2026"></span></li>
+      <li><b>The Forgotten Emotional Geography</b><span class="src" data-en="3rd Global South Studies Conference, Ho Chi Minh City · 2026">第三届全球南方研究国际学术研讨会 · 2026</span><span class="cert-chip" data-cert="certs/south_conf.jpg" data-t="全球南方研讨会录用函" data-t-en="Acceptance Letter — 3rd Global South Studies Symposium"></span></li>
+      <li><b data-en="The Historical Evolution of Macau's Tomb Preservation and Its Implications for Mutual Learning Between Civilisations — presented at 'Area Studies · Beijing Forum 2026'">《澳门墓碑保存的历史演变及其文明互鉴启示》· "区域国别学·北京论坛 2026"论文宣讲</b><span class="src" data-en="Beijing International Studies University · 2026.09">北京第二外国语学院 · 2026.09</span><span class="cert-chip" data-cert="certs/bjfors.jpg" data-t="区域国别学北京论坛论文宣讲证明" data-t-en="Certificate — Area Studies Beijing Forum 2026"></span></li>
+    </ul>
+  </div>
+
+  <div class="xtra reveal">
+    <h3 data-en="Extended Learning">拓展学习</h3>
+    <p class="note" data-en="Summer schools, workshops and open courses beyond the studio — heritage, anthropology, craft and curiosity.">工作室之外：暑期学校、工作营与开放课程——文化遗产、人类学、工艺，以及一点好奇心。</p>
+    <span class="grp" data-en="Summer Schools & Workshops">暑期学校与工作营</span>
+    <ul>
+      <li><b data-en="Peking University Graduate Summer School 'River-Basin Civilisations' — Theory and Method of Urban-Rural Built Heritage · completed with 2 credits">北京大学研究生暑期学校「城乡建成环境文化遗产理论与方法：流域文明」· 结业（2 学分）</b><span class="src">2024.07</span><span class="cert-chip" data-cert="certs/pku_summer.jpg" data-t="北京大学结业证书" data-t-en="Certificate — Peking University Summer School"></span></li>
+      <li><b data-en="Tsinghua University Interdisciplinary Research Programme — 'Big Data and Causal Inference' Workshop">清华大学交叉学科研究能力提升计划「大数据与因果推断研讨班」</b><span class="src">2024 秋</span><span class="cert-chip" data-cert="certs/thu_bigdata.jpg" data-t="清华大学参与证明" data-t-en="Certificate — Tsinghua University Workshop"></span></li>
+      <li><b data-en="5th National Anthropology Training Camp for University Students · Institute of Anthropology, Zhejiang University">第五届全国大学生人类学训练营 · 浙江大学人类学研究所</b><span class="src">2025.06</span><span class="cert-chip" data-cert="certs/anthropology_camp.jpg" data-t="人类学训练营结营证书" data-t-en="Certificate — Anthropology Training Camp"></span></li>
+      <li><b data-en="Online Summer School 'Introduction to Cuneiform' (Sumerian and Akkadian) · Institute of Ancient Civilizations, Zhejiang Normal University">「楔形文字导论」线上暑期学校（苏美尔语 · 阿卡德语）· 浙江师范大学非洲古代文明研究院</b><span class="src">2026.08</span><span class="cert-chip" data-cert="certs/zjnu_cuneiform.jpg" data-t="楔形文字暑期学校证书" data-t-en="Certificate — Introduction to Cuneiform"></span></li>
+      <li><b data-en="Technical University of Liberec (Czechia), Faculty of Textile Engineering — Summer School on Design, Production, Modelling and Analysis of 1D/2D Textile Structures · completed with ECTS credits">捷克利贝雷茨技术大学纺织工程学院暑期学校「一维/二维纺织结构的设计·成型·建模与分析」· 结业并获 ECTS 学分</b><span class="src">2026.08</span><span class="cert-chip" data-cert="certs/liberec_cert.jpg" data-t="利贝雷茨技术大学结业证书" data-t-en="Certificate — TU Liberec Summer School"></span><span class="cert-chip" data-cert="certs/liberec_ects.jpg" data-t="ECTS 学分证明" data-t-en="Transcript of Records (ECTS)"></span></li>
+      <li><b data-en="'Belt and Road' Art Mutual-Learning Programme — Guangdong Workshop, Jiangmen · Sichuan Fine Arts Institute">「陆海之约文化交融：一带一路艺术互鉴计划」广东工作营（江门）· 四川美术学院艺术人文学院</b><span class="src">2024.05</span><span class="cert-chip" data-cert="certs/obor_jiangmen.jpg" data-t="工作营结业证书" data-t-en="Certificate — Belt and Road Workshop"></span></li>
+      <li><b data-en="Land Art and Glass Workshops (Phase I) · Longquan Research Institute of Jingdezhen Ceramic University">景德镇陶瓷大学龙泉研究院「大地艺术工作营」「玻璃工作营」（一期）· 结业</b><span class="src">2024.11</span><span class="cert-chip" data-cert="certs/longquan_workshop.jpg" data-t="大地艺术·玻璃工作营结业证书" data-t-en="Certificate — Land Art and Glass Workshops"></span></li>
+      <li><b data-en="Digital Modelling and Design Course · China Academy of Art Longquan Research Institute">中国美术学院龙泉研究院「数字建模与设计」课程 · 结业</b><span class="src">2025</span><span class="cert-chip" data-cert="certs/caa_digital.jpg" data-t="数字建模与设计课程结业证书" data-t-en="Certificate — Digital Modelling and Design"></span></li>
+      <li><b data-en="China National Arts Fund 2026 talent programme — 'Shouzhou Kiln Innovative Craft Techniques' Training, admitted · Huainan Normal University">国家艺术基金 2026 年度人才培养资助项目「寿州窑创新技艺人才培训」· 录取学员 · 淮南师范学院</b><span class="src">2026.07</span><span class="cert-chip" data-cert="certs/shouzhouyao.jpg" data-t="《寿州窑创新技艺人才培训》录取通知书" data-t-en="Admission Letter — Shouzhou Kiln Innovative Craft Training"></span></li>
+    </ul>
+    <span class="grp" data-en="Fieldwork & Academic Essay Competitions">田野调查与学术征文</span>
+    <ul>
+      <li><b data-en="4th 'Recording Rural China' Folklore Fieldwork Essay Programme · Second Prize — 'Belief and Folk-custom Fieldwork of Tujia Villages in Yinjiang, Tongren: A Case Study of Zhongyao Village, Tiantang Town'">第四届"记录乡土中国"暨 2025 寒假大学生民俗文化社会调查征稿 · 二等奖——《铜仁印江土家族村落信仰信俗田野调查：以天堂镇中尧村为例》</b><span class="src">2025.04</span><span class="cert-chip" data-cert="certs/xiangtu4.jpg" data-t="第四届记录乡土中国二等奖证书" data-t-en="Certificate — 4th Recording Rural China, Second Prize"></span></li>
+      <li><b data-en="5th 'Recording Rural China' Folklore Fieldwork Essay Programme · Second Prize — 'Horses That Are Not Horses: Reconstruction of Horse Culture in Paper-Horse Rituals, a Multi-ethnic Fieldwork in Yunnan'">第五届"记录乡土中国"暨 2026 寒假大学生民俗文化社会调查征稿 · 二等奖——《非马之马：纸马仪式中的马文化重构——基于云南多民族的田野调查报告》</b><span class="src">2026.05</span><span class="cert-chip" data-cert="certs/xiangtu5.jpg" data-t="第五届记录乡土中国二等奖证书" data-t-en="Certificate — 5th Recording Rural China, Second Prize"></span></li>
+      <li><b data-en="Yunnan Folklore Society 2026 'Sojourn and Folklore in the AI Era' fieldwork essay programme · Third Prize — 'Horses That Are Not Horses'">云南省民俗学会 2026"AI 时代的旅居与民俗"田野调查征稿 · 三等奖——《非马之马：纸马仪式中的马文化重构》</b><span class="src">2026.05</span><span class="cert-chip" data-cert="certs/yunnan_minsu.jpg" data-t="云南省民俗学会三等奖证书" data-t-en="Certificate — Yunnan Folklore Society, Third Prize"></span></li>
+      <li><b data-en="7th 'Guangqi Cup' National Student Essay Competition in Art Disciplines · Third Prize (undergraduate group) — 'Iconographic Research on Macau's Tomb Architecture'">第七届"光祈杯"全国高校艺术学科学生论文比赛 · 本科生组三等奖——《澳门葛碑建筑图像研究》</b><span class="src">2026.05</span><span class="cert-chip" data-cert="certs/guangqi.jpg" data-t="光祈杯三等奖证书" data-t-en="Certificate — 7th Guangqi Cup, Third Prize"></span></li>
+    </ul>
+    <span class="grp" data-en="Open Courses">开放课程与线上学习</span>
+    <ul>
+      <li><b data-en="Historical Anthropology · Stepik online course">《历史人类学》· Stepik 线上课程</b><span class="src">2026.04</span><span class="cert-chip" data-cert="certs/stepik_histo.jpg" data-t="历史人类学课程证书" data-t-en="Certificate — Historical Anthropology"></span></li>
+      <li><b data-en="FutureLearn — Remote Sensing for Endangered Archaeology (two courses, incl. advanced)">FutureLearn「濒危考古学遥感勘探」系列（含进阶课程）</b><span class="cert-chip" data-cert="certs/fl_arch1.jpg" data-t="濒危考古学遥感证书" data-t-en="Certificate — Remote Sensing for Endangered Archaeology"></span><span class="cert-chip" data-cert="certs/fl_arch2.jpg" data-t="进阶考古遥感证书" data-t-en="Certificate — Advanced Archaeological Remote Sensing"></span></li>
+      <li><b data-en="FutureLearn — Art and the Environment in Southeast Asia (two courses)">FutureLearn「东南亚的艺术与环境」系列（两门课程）</b><span class="cert-chip" data-cert="certs/fl_env_space.jpg" data-t="环境作为争议空间证书" data-t-en="Certificate — Environment as Contested Space"></span><span class="cert-chip" data-cert="certs/fl_env_ideo.jpg" data-t="景观作为意识形态证书" data-t-en="Certificate — Landscape as Ideology"></span></li>
+    </ul>
+    <span class="grp" data-en="Roles & Public Service">身份与公益</span>
+    <ul>
+      <li><b data-en="Researcher (Arts and Crafts) · Beijing Folk Art and Intangible Cultural Heritage Institute">北京民艺非物质文化遗产研究院 · 研究员（工艺美术）</b><span class="src">2025</span><span class="cert-chip" data-cert="certs/minyi_researcher.jpg" data-t="研究员证（封面与内页）" data-t-en="Researcher Certificate (cover and inside)"></span></li>
+      <li><b data-en="Volunteer reporter, 'Beautiful Conversations: Rural Oral Memory' · UNESCO Chair on Creativity and Sustainable Development, Peking University">联合国教科文组织乡村创意与可持续发展教席「美好的对话——乡村口述记忆」项目 · 采写志愿者</b><span class="src">2024.12 – 2025.04</span><span class="cert-chip" data-cert="certs/unesco_volunteer.jpg" data-t="志愿证明" data-t-en="Certificate — UNESCO Volunteer"></span></li>
+    </ul>
+    <span class="grp" data-en="Life Skills">生活技能</span>
+    <ul>
+      <li><b data-en="FutureLearn / BBC Good Food — five baking courses: Afternoon Tea, Pies and Tarts, Sourdough, Showstopper Cakes, Become a Successful Baker (ExpertTrack)">FutureLearn / BBC Good Food 烘焙课程五门：下午茶 · 派与挞 · 酸面团 · 翻糖蛋糕 · 成功面包师（ExpertTrack）</b><span class="src" data-en="just for joy">纯粹为了快乐</span><span class="cert-chip" data-cert="certs/fl_bake1.jpg" data-t="下午茶烘焙证书" data-t-en="Certificate — Baking Afternoon Tea"></span><span class="cert-chip" data-cert="certs/fl_bake3.jpg" data-t="派与挞证书" data-t-en="Certificate — Pies and Tarts"></span><span class="cert-chip" data-cert="certs/fl_bake4.jpg" data-t="酸面团证书" data-t-en="Certificate — Sourdough"></span><span class="cert-chip" data-cert="certs/fl_bake5.jpg" data-t="翻糖蛋糕证书" data-t-en="Certificate — Showstopper Cakes"></span><span class="cert-chip" data-cert="certs/fl_bake2.jpg" data-t="成功面包师 ExpertTrack 证书" data-t-en="Certificate — Become a Successful Baker (ExpertTrack)"></span></li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============ CONTACT ============ -->
+<section id="contact" class="contact">
+  <div class="reveal">
+    <div class="sec-tag">Contact</div>
+    <div class="big" data-en="A Dialogue with Clay">与泥土对话</div>
+    <p class="sub" data-en="Exhibitions · Acquisitions · Commissions · Residencies — welcome to write">展览合作 · 作品收藏 · 金缮修复 · 驻留交流，欢迎来信</p>
+    <div class="contact-cards">
+      <a class="ccard" href="mailto:kekogen@foxmail.com"><div class="k">Email</div><div class="v">kekogen@foxmail.com</div></a>
+      <a class="ccard" href="tel:+8613302340686"><div class="k">Mobile</div><div class="v">+86 133 0234 0686</div></a>
+      <div class="ccard"><div class="k" data-en="WeChat">微信 WeChat</div><div class="v">1145227528</div></div>
+    </div>
+  </div>
+</section>
+
+<footer><span data-en="© 2026 Ji Hongxuan <em>JI HONGXUAN</em> · Longquan, Zhejiang / Jingdezhen, Jiangxi">© 2026 嵇鸿轩 <em>JI HONGXUAN</em> · 浙江龙泉 / 江西景德镇</span></footer>
+
+<!-- cert hover preview -->
+<div id="certPop"><img src="" alt=""><div class="cap"></div></div>
+
+<!-- lightbox -->
+<div class="lb" id="lb">
+  <span class="lb-x" id="lbX">✕</span>
+  <span class="lb-arrow lb-prev" id="lbPrev">‹</span>
+  <img id="lbImg" src="" alt="">
+  <div class="lb-cap"><b id="lbT"></b><span id="lbM"></span></div>
+  <span class="lb-arrow lb-next" id="lbNext">›</span>
+</div>
+
+<script>
+/* ================= i18n ================= */
+const transEls = [...document.querySelectorAll('[data-en]')];
+transEls.forEach(el => el.dataset.zh = el.innerHTML);
+let lang = 'zh';
+const langBtn = document.getElementById('langBtn');
+function setLang(l){
+  lang = l;
+  document.documentElement.lang = l === 'en' ? 'en' : 'zh-CN';
+  document.body.classList.toggle('en', l === 'en');
+  transEls.forEach(el => { el.innerHTML = l === 'en' ? el.dataset.en : el.dataset.zh; });
+  langBtn.textContent = l === 'en' ? '中文' : 'EN';
+  if (lb.classList.contains('open')) update();
+}
+langBtn.addEventListener('click', () => setLang(lang === 'zh' ? 'en' : 'zh'));
+
+/* ================= nav ================= */
+const nav = document.getElementById('nav');
+addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 40));
+
+/* ================= reveal ================= */
+const io = new IntersectionObserver(es => es.forEach(e => {
+  if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+}), { threshold: .12 });
+document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+const gio = new IntersectionObserver(es => es.forEach(e => {
+  if (e.isIntersecting) {
+    const n = [...document.querySelectorAll('.card.in')].length;
+    setTimeout(() => e.target.classList.add('in'), (n % 3) * 110);
+    gio.unobserve(e.target);
+  }
+}), { threshold: .08 });
+document.querySelectorAll('.card').forEach(el => gio.observe(el));
+
+/* ================= filters ================= */
+document.querySelectorAll('.filters button').forEach(btn => btn.addEventListener('click', () => {
+  document.querySelectorAll('.filters button').forEach(b => b.classList.remove('on'));
+  btn.classList.add('on');
+  const f = btn.dataset.f;
+  document.querySelectorAll('.card').forEach(c => {
+    const show = f === 'all' || c.dataset.cat === f;
+    c.classList.toggle('hide', !show);
+    if (show) { c.classList.remove('in'); requestAnimationFrame(() => setTimeout(() => c.classList.add('in'), 60)); }
+  });
+}));
+
+/* ================= lightbox ================= */
+const lb = document.getElementById('lb'), lbImg = document.getElementById('lbImg'),
+      lbT = document.getElementById('lbT'), lbM = document.getElementById('lbM');
+let items = [], idx = 0;
+function openLB(list, i) {
+  items = list; idx = i; update();
+  lb.classList.add('open'); document.body.style.overflow = 'hidden';
+}
+function update() {
+  const it = items[idx];
+  lbImg.src = it.img;
+  lbT.textContent = lang === 'en' ? (it.tEn || it.t) : it.t;
+  lbM.textContent = lang === 'en' ? (it.mEn || it.m) : it.m;
+}
+function closeLB() { lb.classList.remove('open'); document.body.style.overflow = ''; }
+
+[...document.querySelectorAll('.card')].forEach(c => c.addEventListener('click', () => {
+  const visible = [...document.querySelectorAll('.card')].filter(x => !x.classList.contains('hide'));
+  const list = [];
+  visible.forEach(x => x.querySelectorAll('img:not(.cover)').forEach(im =>
+    list.push({ img: im.src, t: x.dataset.t, m: x.dataset.m, tEn: x.dataset.tEn, mEn: x.dataset.mEn })));
+  let start = 0;
+  for (const x of visible) { if (x === c) break; start += x.querySelectorAll('img:not(.cover)').length; }
+  openLB(list, start);
+}));
+
+[...document.querySelectorAll('[data-lb]')].forEach(img => img.addEventListener('click', () => {
+  const all = [...document.querySelectorAll('[data-lb]')];
+  openLB(all.map(x => ({ img: x.src, t: x.dataset.t, m: x.dataset.m, tEn: x.dataset.tEn, mEn: x.dataset.mEn })), all.indexOf(img));
+}));
+
+document.getElementById('lbX').onclick = closeLB;
+lb.addEventListener('click', e => { if (e.target === lb) closeLB(); });
+document.getElementById('lbPrev').onclick = e => { e.stopPropagation(); idx = (idx - 1 + items.length) % items.length; update(); };
+document.getElementById('lbNext').onclick = e => { e.stopPropagation(); idx = (idx + 1) % items.length; update(); };
+addEventListener('keydown', e => {
+  if (!lb.classList.contains('open')) return;
+  if (e.key === 'Escape') closeLB();
+  if (e.key === 'ArrowLeft') document.getElementById('lbPrev').click();
+  if (e.key === 'ArrowRight') document.getElementById('lbNext').click();
+});
+
+/* ================= certificate chips (delegation, survives lang swap) ================= */
+const pop = document.getElementById('certPop'), popImg = pop.querySelector('img'), popCap = pop.querySelector('.cap');
+document.addEventListener('mouseover', e => {
+  const chip = e.target.closest('.cert-chip');
+  if (!chip) return;
+  popImg.src = chip.dataset.cert;
+  popCap.textContent = lang === 'en' ? (chip.dataset.tEn || chip.dataset.t) : chip.dataset.t;
+  pop.style.display = 'block';
+  const r = chip.getBoundingClientRect();
+  let left = Math.min(Math.max(12, r.left + r.width / 2 - 170), innerWidth - 364);
+  pop.style.left = left + 'px';
+  const below = r.top < 400;
+  if (below) { pop.style.top = (r.bottom + 12) + 'px'; pop.style.transform = 'none'; }
+  else { pop.style.top = (r.top - 12) + 'px'; pop.style.transform = 'translateY(-100%)'; }
+});
+document.addEventListener('mouseout', e => {
+  if (e.target.closest('.cert-chip')) pop.style.display = 'none';
+});
+document.addEventListener('click', e => {
+  const chip = e.target.closest('.cert-chip');
+  if (!chip) return;
+  pop.style.display = 'none';
+  openLB([{ img: chip.dataset.cert, t: chip.dataset.t, m: '', tEn: chip.dataset.tEn, mEn: '' }], 0);
+});
+
+/* ================= active nav ================= */
+const secs = ['about','works','residency','record','contact'].map(id => document.getElementById(id));
+addEventListener('scroll', () => {
+  let cur = '';
+  secs.forEach(s => { if (scrollY >= s.offsetTop - 200) cur = s.id; });
+  document.querySelectorAll('.nav-links a').forEach(a =>
+    a.classList.toggle('active', a.getAttribute('href') === '#' + cur));
+});
+</script>
+</body>
+</html>
